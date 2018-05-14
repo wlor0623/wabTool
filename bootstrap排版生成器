@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>bootstrap排版生成器</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+            list-style: none
+        }
+
+        html,
+        body {
+            background-color: #494a5f;
+            width: 100%;
+            height: 100%;
+            position: relative
+        }
+
+        a:hover {
+            text-decoration: none;
+            cursor: pointer
+        }
+
+        .input-group {
+            width: 100%
+        }
+
+        .input-group-addon {
+            height: 45px;
+            border: 1px solid#ccc !important
+        }
+
+        .input-group>input {
+            height: 45px
+        }
+
+        #reload {
+            border: none;
+            display: block;
+            width: 100%;
+            background-color: #ff5975;
+            color: #f5f5f5;
+            height: 40px;
+            line-height: 40px;
+            padding: 0;
+            border-radius: 5px;
+            font-size: 20px;
+            text-align: center
+        }
+
+        .input-group>button {
+            transition: all.4s;
+            border: none;
+            display: block;
+            width: 100%;
+            background-color: #2e99e7;
+            color: #f5f5f5;
+            height: 40px;
+            line-height: 40px;
+            padding: 0;
+            border-radius: 5px;
+            font-size: 20px;
+            margin-top: 20px;
+            margin-bottom: 40px
+        }
+
+        #demo {
+            background-color: rgba(0, 0, 0, .1);
+            overflow: hidden;
+            width: 600px
+        }
+
+        #demo>div {
+            height: 50px;
+            padding: 10px;
+            box-sizing: border-box
+        }
+
+        #demo>div>span {
+            background-color: #049dff;
+            display: block;
+            width: 100%;
+            line-height: 30px;
+            height: 30px;
+            color: #f5f5f5;
+            text-align: center
+        }
+
+        label.error {
+            color: #ff5975;
+            font-size: 16px
+        }
+    </style>
+</head>
+
+<body>
+    <section style="width:400px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background-color:#eee;padding:20px;z-index:999">
+        <h3 style="text-align: center;">bootstrap排版生成器</h3>
+        <form class="bs-example bs-example-form" id="rulesForm" role="form" autocomplete="off">
+            <span class="input-group-addon">&lt768px</span>
+            <div class="input-group">
+                <input type="text" min="1" max="12" minlength="1" maxlength="2" required name="phone" id="phone" class="form-control"
+                    placeholder="1-12">
+            </div>
+            <span class="input-group-addon">≥768px</span>
+            <div class="input-group">
+                <input type="text" min="1" max="12" minlength="1" maxlength="2" required name="pad" id="pad" class="form-control"
+                    placeholder="1-12">
+            </div>
+            <span class="input-group-addon">≥992px</span>
+            <div class="input-group">
+                <input type="text" min="1" max="12" minlength="1" maxlength="2" required name="smallPc" id="smallPc" class="form-control"
+                    placeholder="1-12">
+            </div>
+            <span class="input-group-addon">≥1200px</span>
+            <div class="input-group">
+                <input type="text" min="1" max="12" minlength="1" maxlength="2" required name="bigPC" id="bigPC" class="form-control"
+                    placeholder="1-12">
+            </div>
+            <div class="input-group" style="text-align:center">
+                <button id="getCode" data-clipboard-text="" data-container="body" data-toggle="popover" data-placement="bottom"
+                    data-content="类名已复制">生成代码</button>
+            </div>
+            <a id="reload" onclick="window.location.reload()">刷新页面</a>
+        </form>
+    </section>
+    <div id="demo"></div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdn.bootcss.com/clipboard.js/1.6.1/clipboard.min.js"></script>
+<script>
+    $(function () {
+        $("#rulesForm").validate({
+            rules: {
+                phone: {
+                    required: true,
+                    minlength: 1,
+                    maxlength: 2,
+                },
+                pad: {
+                    required: true,
+                    minlength: 1,
+                    maxlength: 2,
+                },
+                smallPc: {
+                    required: true,
+                    minlength: 1,
+                    maxlength: 2,
+                },
+                bigPC: {
+                    required: true,
+                    minlength: 1,
+                    maxlength: 2,
+                },
+            },
+            messages: {
+                phone: {
+                    required: "请输入格数",
+                    min: "请输入1-12有效数字",
+                    max: "请输入1-12有效数字",
+                    minlength: "请输入1-12有效数字",
+                    maxlength: "请输入1-12有效数字",
+                },
+                pad: {
+                    required: "请输入格数",
+                    min: "请输入1-12有效数字",
+                    max: "请输入1-12有效数字",
+                    minlength: "请输入1-12有效数字",
+                    maxlength: "请输入1-12有效数字",
+                },
+                smallPc: {
+                    required: "请输入格数",
+                    min: "请输入1-12有效数字",
+                    max: "请输入1-12有效数字",
+                    minlength: "请输入1-12有效数字",
+                    maxlength: "请输入1-12有效数字",
+                },
+                bigPC: {
+                    required: "请输入格数",
+                    min: "请输入1-12有效数字",
+                    max: "请输入1-12有效数字",
+                    minlength: "请输入1-12有效数字",
+                    maxlength: "请输入1-12有效数字",
+                },
+            },
+            submitHandler: function (form) {
+                var phone = 12 / $('#phone').val();
+                var pad = 12 / $('#pad').val();
+                var smallPc = 12 / $('#smallPc').val();
+                var bigPC = 12 / $('#bigPC').val();
+                var classStr = "";
+                classStr += `col-xs-${phone}`;
+                classStr += `col-sm-${pad}`;
+                classStr += `col-md-${smallPc}`;
+                classStr += `col-lg-${bigPC}`;
+                $('#getCode').attr("data-clipboard-text", classStr);
+                var divStr = "";
+                for (var i = 0; i < 12; i++) {
+                    divStr += `<div class="${classStr}"><span>${i+1}<span></div>`
+                }
+                $('#demo').html(divStr);
+                var clipboard = new Clipboard('#getCode');
+                clipboard.on('success', function (e) {
+                    showTips()
+                });
+                clipboard.on('error', function (e) {})
+            },
+        })
+    });
+
+    function showTips() {
+        $('#getCode').popover('show')
+    }
+</script>
+</html>
