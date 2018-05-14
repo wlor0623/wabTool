@@ -3,7 +3,6 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>免费新浪CDN图床</title>
@@ -11,129 +10,94 @@
     <link href="https://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.bootcss.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
     <style>
-        /* Space out content a bit */
-
         body {
             padding-top: 20px;
             padding-bottom: 20px;
+            background-color: #494a5f;
         }
-
-        /* Everything but the jumbotron gets side spacing for mobile first views */
 
         .header,
         .marketing,
         .footer {
             padding-right: 15px;
-            padding-left: 15px;
+            padding-left: 15px
         }
-
-        /* Custom page header */
 
         .header {
-            border-bottom: 1px solid #e5e5e5;
+            border-bottom: 1px solid#e5e5e5
         }
-
-        /* Make the masthead heading the same height as the navigation */
 
         .header h3 {
             padding-bottom: 19px;
             margin-top: 0;
             margin-bottom: 0;
-            line-height: 40px;
+            line-height: 40px
         }
-
-        /* Custom page footer */
 
         .footer {
             padding-top: 19px;
             color: #777;
-            border-top: 1px solid #e5e5e5;
+            border-top: 1px solid#e5e5e5
         }
 
-        /* Customize container */
-
-        @media (min-width: 768px) {
+        @media(min-width:768px) {
             .container {
-                max-width: 730px;
+                max-width: 730px
             }
         }
 
         .container-narrow>hr {
-            margin: 30px 0;
+            margin: 30px 0
         }
-
-        /* Main marketing message and sign up button */
 
         .jumbotron {
             text-align: center;
-            border-bottom: 1px solid #e5e5e5;
+            border-bottom: 1px solid#e5e5e5
         }
 
-        .jumbotron .btn {
+        .jumbotron.btn {
             padding: 14px 24px;
-            font-size: 21px;
+            font-size: 21px
         }
-
-        /* Supporting marketing content */
 
         .marketing {
-            margin: 40px 0;
+            margin: 40px 0
         }
 
         .marketing p+h4 {
-            margin-top: 28px;
+            margin-top: 28px
         }
 
-        /* Responsive: Portrait tablets and up */
-
-        @media screen and (min-width: 768px) {
-            /* Remove the padding we set earlier */
+        @media screen and(min-width:768px) {
             .header,
             .marketing,
             .footer {
                 padding-right: 0;
-                padding-left: 0;
+                padding-left: 0
             }
-            /* Space out the masthead */
             .header {
-                margin-bottom: 30px;
+                margin-bottom: 30px
             }
-            /* Remove the bottom border on the jumbotron for visual effect */
             .jumbotron {
-                border-bottom: 0;
+                border-bottom: 0
             }
         }
 
-
-
-
-
-
-
-        /*  辿��构揃尊巽��� begin */
-
         .container {
-            max-width: 1000px;
+            max-width: 1000px
         }
 
         .picurl>input {
-            height: 50px;
+            height: 50px
         }
 
         .picurl>input {
             font-size: 20px;
-            text-align: center;
-        }
-
-        .picurl span {
-            -moz-user-select: none;
-            -webkit-user-select: none;
-            -ms-user-select: none;
-            -webkit-touch-callout: none;
+            text-align: center
         }
 
         .mselector {
-            display: inline-block;
+            display: inline-block
         }
 
         .mselector>input {
@@ -141,50 +105,50 @@
             width: 134px;
             height: 57px;
             position: absolute;
-            display: inline-block;
+            display: inline-block
         }
 
         .preview {
-            display: none;
+            display: none
         }
-
-        .preview>img {
+        .preview>a{
+            display: block;
+        }
+        .preview>a>img {
             max-width: 50%;
-            max-height: 450px;
+            max-height: 450px
         }
 
         textarea.form-control {
             resize: none;
-            height: 188px;
+            height: 188px
         }
-
-        /*  辿��构揃尊巽��� end */
 
         div.message ul {
             float: left;
             padding: 0;
-            width: 100%;
+            width: 100%
         }
 
         div.message li {
-            border: solid 1px #fff;
+            border: solid 1px#fff;
             text-align: center;
             list-style: none;
             float: left;
             width: 22%;
             height: 200px;
             margin: 3px;
-            position: relative;
+            position: relative
         }
 
         .imgPreview {
             margin-top: 5%;
             max-width: 90%;
-            max-height: 80%;
+            max-height: 80%
         }
 
         img {
-            vertical-align: middle;
+            vertical-align: middle
         }
 
         .progress {
@@ -195,7 +159,7 @@
             padding: 1px;
             border-radius: 3px;
             float: center;
-            margin-bottom: 5px;
+            margin-bottom: 5px
         }
 
         .bar {
@@ -204,7 +168,7 @@
             width: 0%;
             height: 36px;
             border-radius: 3px;
-            float: left;
+            float: left
         }
 
         .percent {
@@ -212,7 +176,7 @@
             height: 36px;
             display: inline-block;
             left: 2%;
-            color: #fff;
+            color: #fff
         }
     </style>
 </head>
@@ -220,7 +184,7 @@
 <body>
     <div class="container">
         <div class="jumbotron">
-            <p class="lead">全网CDN图床 不限流量 无限外链 永久免费 图床API
+            <p class="lead">全网CDN图床不限流量无限外链永久免费图床API
                 <br>
             </p>
             <div class="mselector">
@@ -234,8 +198,7 @@
                 <hr>
             </div>
         </div>
-
-        <!-- url上传弹窗 -->
+        <!--url上传弹窗-->
         <div id="url_upload_model" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -257,14 +220,12 @@
                 </div>
             </div>
         </div>
-
-
-        <div class="footer">
-        </div>
+        <div class="footer"></div>
     </div>
     <script src="https://cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script type="text/javascript">
+
         $(document).ready(function () {
             $('.picurl > input').bind('focus mouseover', function () {
                 if (this.value) {
@@ -288,6 +249,7 @@
                 images_upload(e.originalEvent.dataTransfer.files)
             })
         });
+        // 网址上传
         var url_upload = function () {
             var urls = $("#urls").val();
             var url_arr = urls.split("\n");
@@ -310,8 +272,8 @@
                         if (typeof data.original_pic != 'undefined') {
                             $('#url-res-txt').append(data.original_pic + '\n');
                             $('.mselector > button')[1].innerHTML = '成功 ' + (i + 1) + '/' + url_arr.length;
-                            var apc = "<img src='" + data.original_pic + "' alt='" + data.original_pic +
-                                "'><br>";
+                            var apc = "<a href="+data.original_pic+"><img src='" + data.original_pic + "' alt='" + data.original_pic +
+                                "'></a><br>";
                             $('.preview').css('display', 'block');
                             $(".preview>hr").after(apc)
                         } else {
@@ -331,6 +293,7 @@
                 })
             }
         };
+        // 图片上传
         var images_upload = function (files) {
             var flag = 0;
             $('textarea').empty();
@@ -352,8 +315,8 @@
                         if (typeof data.original_pic != 'undefined') {
                             $('#url-res-txt').append(data.original_pic + '\n');
                             $('.mselector > button')[0].innerHTML = '成功 ' + flag + '/' + files.length;
-                            var apc = "<img src='" + data.original_pic + "' alt='" + data.original_pic +
-                                "'><br>";
+                            var apc = "<a href="+data.original_pic+"><img src='" + data.original_pic + "' alt='" + data.original_pic +
+                                "'></a><br>";
                             $('.preview').css('display', 'block');
                             $(".preview>hr").after(apc)
                         } else {
@@ -387,4 +350,5 @@
         }
     </script>
 </body>
+
 </html>
