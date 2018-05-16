@@ -2,157 +2,157 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://unpkg.com/element-ui/lib/theme-chalk/index.css" rel="stylesheet">
-    <title>bootstrap排版工具</title>
-    <style>
-        * {
-            padding: 0;
-            margin: 0;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/element-ui/lib/theme-chalk/index.css" rel="stylesheet">
+  <link href="http://raw.githack.com/sentsin/layui/master/dist/css/layui.css" rel="stylesheet">
+  <title>bootstrap排版工具</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
 
-        html,
-        body {
-            background-color: #494a5f;
-            width: 100%;
-            height: 100%;
-            position: relative;
-        }
+    html,
+    body {
+      background-color: #494a5f;
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
 
-        li {
-            list-style: none;
-        }
+    li {
+      list-style: none;
+    }
 
-        #jsbox_http {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 400px;
-            padding: 20px;
-            box-sizing: border-box;
-            transform: translate(-50%, -50%);
-            background-color: #f5f5f5;
-            border-radius: 5px;
-        }
+    #jsbox_http {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 400px;
+      padding: 20px;
+      box-sizing: border-box;
+      transform: translate(-50%, -50%);
+      background-color: #f5f5f5;
+      border-radius: 5px;
+    }
 
-        #demo {
-            padding: 20px;
-            overflow: hidden;
-        }
+    #demo {
+      padding: 20px;
+      overflow: hidden;
+    }
 
-        #demo>div {
-            padding: 20px;
-            overflow: hidden;
-        }
+    #demo>div {
+      padding: 20px;
+      overflow: hidden;
+    }
 
-        #demo>div>span {
-            background-color: #6495ee;
-            height: 40px;
-            color: #f5f5f5;
-            line-height: 40px;
-            text-align: center;
-        }
-    </style>
+    #demo>div>span {
+      background-color: #6495ee;
+      height: 40px;
+      color: #f5f5f5;
+      line-height: 40px;
+      text-align: center;
+    }
+  </style>
 </head>
 
 <body>
-    <div id="app">
-        <div id="demo">
-            <div v-for="item in 12">
-                <span :class="classStr">{{item}}</span>
-            </div>
-        </div>
-        <div id="jsbox_http">
-            <h3 style="text-align: center;">bootstrap排版工具</h3>
-            <el-form label-width="15%">
-                <el-form-item label="<768px">
-                    <el-select v-model="phoneValue" style="width: 100%" @change="getClass" placeholder="请选择手机份数">
-                        <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"></el-option>
-                    </el-select>
-                </el-form-item>
-                <el-form-item label="≥768px">
-                    <el-select v-model="padValue" style="width: 100%" @change="getClass" placeholder="请选择平板份数">
-                        <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"></el-option>
-                    </el-select>
-                </el-form-item>
-                <el-form-item label="≥992px">
-                    <el-select v-model="smallValue" style="width: 100%" @change="getClass" placeholder="请选择小屏幕份数">
-                        <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"></el-option>
-                    </el-select>
-                </el-form-item>
-                <el-form-item label="≥1200px">
-                    <el-select v-model="bigValue" style="width: 100%" @change="getClass" placeholder="请选择大屏幕份数">
-                        <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"></el-option>
-                    </el-select>
-                </el-form-item>
-                <el-input clearable v-model="classStr" style="margin-bottom: 20px;"></el-input>
-            </el-form>
-        </div>
+  <div id="app">
+    <div id="demo">
+      <div v-for="item in 12">
+        <span :class="classStr">{{item}}</span>
+      </div>
     </div>
+    <div id="jsbox_http">
+      <h3 style="text-align: center;">bootstrap排版工具</h3>
+      <el-form label-width="15%">
+        <el-form-item label="框架名">
+          <el-select v-model="uiValue" style="width: 100%" @change="getClass" placeholder="请选择框架名称">
+            <el-option v-for="item in uiTypes" :key="item.value" :label="item.label" :value="item.value"></el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="<768px">
+          <el-select v-model="phoneValue" style="width: 100%" @change="getClass" placeholder="请选择手机份数">
+            <el-option v-for="item in colOptions" :key="item.value" :label="item.label" :value="item.value"></el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="≥768px">
+          <el-select v-model="padValue" style="width: 100%" @change="getClass" placeholder="请选择平板份数">
+            <el-option v-for="item in colOptions" :key="item.value" :label="item.label" :value="item.value"></el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="≥992px">
+          <el-select v-model="smallValue" style="width: 100%" @change="getClass" placeholder="请选择小屏幕份数">
+            <el-option v-for="item in colOptions" :key="item.value" :label="item.label" :value="item.value"></el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="≥1200px">
+          <el-select v-model="bigValue" style="width: 100%" @change="getClass" placeholder="请选择大屏幕份数">
+            <el-option v-for="item in colOptions" :key="item.value" :label="item.label" :value="item.value"></el-option>
+          </el-select>
+        </el-form-item>
+        <el-input clearable v-model="classStr" style="margin-bottom: 20px;"></el-input>
+      </el-form>
+    </div>
+  </div>
 </body>
 <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
-<script src="https://cdn.bootcss.com/axios/0.18.0/axios.min.js"></script>
 <script src="https://unpkg.com/element-ui@2.3.8/lib/index.js"></script>
 <script>
-    var all = new Vue({
-        el: "#app",
-        data: {
-            options: [{
-                value: "1",
-                label: "1格"
-            }, {
-                value: "2",
-                label: "2格"
-            }, {
-                value: "3",
-                label: "3格"
-            }, {
-                value: "4",
-                label: "4格"
-            }, {
-                value: "6",
-                label: "6格"
-            }, {
-                value: "7",
-                label: "7格"
-            }, {
-                value: "8",
-                label: "8格"
-            }, {
-                value: "9",
-                label: "9格"
-            }, {
-                value: "10",
-                label: "10格"
-            }, {
-                value: "11",
-                label: "11格"
-            }, {
-                value: "12",
-                label: "12格"
-            }],
-            phoneValue: "",
-            padValue: "",
-            smallValue: "",
-            bigValue: "",
-            classStr: ""
-        },
-        created: function () {
-            var that = this;
-        },
-        methods: {
-            getClass: function () {
-                var that = this;
-                var classStr =
-                    `col-xs-${that.phoneValue} col-sm-${that.padValue} col-md-${that.smallValue}  col-lg-${that.bigValue}`;
-                that.classStr = classStr;
-                console.log(classStr)
-            }
-        },
-    });
+  var all = new Vue({
+    el: "#app",data: {uiTypes: [{value: "bootstrap",label: "bootstrap"}, {value: "layui",label: "layui"}],uiValue:"bootstrap",colOptions: [{value: "1",label: "1格"}, {value: "2",label: "2格"}, {value: "3",label: "3格"}, {
+        value: "4",
+        label: "4格"
+      }, {
+        value: "6",
+        label: "6格"
+      }, {
+        value: "7",
+        label: "7格"
+      }, {
+        value: "8",
+        label: "8格"
+      }, {
+        value: "9",
+        label: "9格"
+      }, {
+        value: "10",
+        label: "10格"
+      }, {
+        value: "11",
+        label: "11格"
+      }, {
+        value: "12",
+        label: "12格"
+      }],
+      phoneValue: 1,
+      padValue: 1,
+      smallValue: 1,
+      bigValue:1,
+      classStr: ""
+    },
+    created: function () {
+      var that = this;
+      that.getClass()
+    },
+    methods: {
+      getClass: function () {
+        const that = this;
+        let classStr ="";
+        if(that.uiValue=="bootstrap"){
+          classStr =
+          `col-xs-${that.phoneValue} col-sm-${that.padValue} col-md-${that.smallValue}  col-lg-${that.bigValue}`;
+        }else{
+          classStr =
+          `layui-col-xs${that.phoneValue} layui-col-sm${that.padValue} layui-col-md${that.smallValue}  layui-col-lg${that.bigValue}`;
+        }
+        that.classStr = classStr;
+      }
+    },
+  });
 </script>
 
 </html>
